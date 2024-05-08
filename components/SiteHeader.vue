@@ -9,3 +9,7 @@
     </ul>
   </div>
 </template>
+
+<script setup>
+const isOpen = ref(false);
+</script>

@@ -3,7 +3,7 @@
     class="hero-video relative h-screen w-screen overflow-hidden bg-orange-200"
   >
     <div class="absolute inset-0 flex justify-center top-[30%] z-10">
-      <h1>LeifPizza</h1>
+      <h1>Dean pizza</h1>
     </div>
     <div class="absolute inset-0">
       <iframe
