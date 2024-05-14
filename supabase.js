@@ -23,6 +23,72 @@ export const fetchPizzas = async () => {
   }
 };
 
+export const fetchPizza = async (id) => {
+  try {
+    const { data, error } = await supabase
+      .from("pizzas")
+      .select("*")
+      .eq("id", id); // how do we hit the right pizza?
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Error fetching pizza:", error.message);
+    return null;
+  }
+};
+
+export const insertPizza = async (pizza) => {
+  try {
+    const { data, error } = await supabase.from("pizzas").insert([pizza]);
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Error inserting pizza:", error.message);
+    return null;
+  }
+};
+
+export const updatePizza = async (id, pizza) => {
+  try {
+    const { data, error } = await supabase
+      .from("pizzas")
+      .update(pizza)
+      .match({ id }); // what is match?
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Error updating pizza:", error.message);
+    return null;
+  }
+};
+
+export const deletePizza = async (id) => {
+  try {
+    const { data, error } = await supabase.from("pizzas").delete().eq("id", id); // what is eq?
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Error deleting pizza:", error.message);
+    return null;
+  }
+};
+
 // const pizzaData = [
 //   {
 //     id: 1,

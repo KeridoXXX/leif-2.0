@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <div>{{ pizza.name }}</div>
+    <div>{{ pizza.type }}</div>
   </div>
 </template>
 <script setup>
