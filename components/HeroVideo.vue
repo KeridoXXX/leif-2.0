@@ -2,8 +2,12 @@
   <div
     class="hero-video relative h-screen w-screen overflow-hidden bg-orange-200"
   >
-    <div class="absolute inset-0 flex justify-center top-[30%] z-10">
-      <h1>Dean pizza</h1>
+    <div class="absolute w-full flex justify-center i top-[30%] z-10">
+      <div class="flex flex-col items-center">
+        <img class="pb-6 w-[500px]" src="assets\logos\leif_logo.png" alt="" />
+        <!-- <h1 class="homemade-apple text-red-600">leif's</h1>  -->
+        <h2 class="homemade-apple text-green-600">buon appetito</h2>
+      </div>
     </div>
     <div class="absolute inset-0">
       <iframe

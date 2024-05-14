@@ -1,10 +1,27 @@
 import { createClient } from "@supabase/supabase-js";
 const supabaseUrl = "https://wmtijaoqacxqmmbjbfap.supabase.co";
-const supabaseKey = process.env.SUPABASE_KEY;
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtdGlqYW9xYWN4cW1tYmpiZmFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTI5MjExMzksImV4cCI6MjAyODQ5NzEzOX0.t0JhJJzN-n87PaxzwlXK7rK_zz97hWP9FhEJJLLXfFE";
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-console.log(supabase);
+//console.log(supabase); // Used to check the status of the connection
+
+export const fetchPizzas = async () => {
+  try {
+    const { data, error } = await supabase.from("pizzas").select("*");
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching pizzas:", error.message);
+    return null;
+  }
+};
 
 // const pizzaData = [
 //   {

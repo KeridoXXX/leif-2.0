@@ -9,7 +9,13 @@ module.exports = {
     "./error.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "leif-red": "#f72622",
+        "leif-green": "#03321E",
+        "leif-white": "#fcf9f9",
+      },
+    },
   },
   plugins: [],
 };
