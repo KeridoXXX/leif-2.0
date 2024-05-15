@@ -89,6 +89,42 @@ export const deletePizza = async (id) => {
   }
 };
 
+export const updateLunchStatus = async (id, status) => {
+  try {
+    const { data, error } = await supabase
+      .from("pizzas")
+      .update({ lunchitem: status })
+      .eq("id", id);
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Error updating lunch status:", error.message);
+    return null;
+  }
+};
+
+export const updateLimitedStatus = async (id, status) => {
+  try {
+    const { data, error } = await supabase
+      .from("pizzas")
+      .update({ limiteditem: status })
+      .eq("id", id);
+
+    if (error) {
+      throw error;
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Error updating limited status:", error.message);
+    return null;
+  }
+};
+
 // const pizzaData = [
 //   {
 //     id: 1,
