@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Homemade+Apple&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kiwi+Maru&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sanchez:ital@0;1&display=swap");
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -11,23 +13,38 @@
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 4.5rem;
+  font-family: "VulfMono Regular", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h2 {
   font-size: 3.5rem;
+  font-family: "VulfMono Regular", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h3 {
   font-size: 2.75rem;
+  font-family: "VulfMono Regular", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h4 {
   font-size: 1.75rem;
+  font-family: "VulfMono Regular", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h5 {
   font-size: 1.25rem;
+  font-family: "VulfMono Regular", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h6 {
@@ -36,28 +53,66 @@ h6 {
 
 p {
   font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+button {
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  @apply bg-leif-red text-leif-white;
 }
 
 .homemade-apple {
   font-family: "Homemade Apple", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .kiwi-maru {
   font-family: "Kiwi Maru", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .sanchez {
   font-family: "Sanchez", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .alata {
   font-family: "Alata", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .montserrat {
   font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
-.josefin-sans {
+.josefin {
   font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "VulfMono Regular";
+  src: url("../fonts/vulf-regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }

@@ -1,4 +1,8 @@
 <template>
   <div>LIMITED PIZZA BLOCK</div>
 </template>
-<script setup></script>
+<script setup>
+const props = defineProps({
+  pizzas: Array,
+});
+</script>

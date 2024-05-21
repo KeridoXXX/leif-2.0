@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       colors: {
         "leif-red": "#f72622",
-        "leif-green": "#03321E",
+        "leif-green": "#16a34a",
         "leif-white": "#fcf9f9",
       },
     },

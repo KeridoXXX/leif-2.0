@@ -1,6 +1,6 @@
 <template>
   <div
-    class="hero-video relative h-screen w-screen overflow-hidden bg-orange-200"
+    class="hero-video relative h-screen w-[100%] overflow-hidden bg-orange-200"
   >
     <div class="absolute w-full flex justify-center i top-[30%] z-10">
       <div class="flex flex-col items-center">
