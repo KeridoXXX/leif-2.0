@@ -1,8 +1,8 @@
 <template>
   <div
     :class="{
-      'bg-yellow-200': pizza.lunchitem,
-      'bg-blue-200': pizza.limiteditem,
+      'bg-yellow-200': pizza.lunchitem && !pizza.limiteditem,
+      'bg-blue-200': !pizza.lunchitem && pizza.limiteditem,
       'bg-purple-400': pizza.limiteditem && pizza.lunchitem,
       'bg-white': !pizza.lunchitem && !pizza.limiteditem,
     }"
@@ -35,16 +35,16 @@
         <button
           @click="handleLunchItem"
           class="bg-yellow-300 hover:bg-yellow-400 p-2"
-          :class="pizza.lunchitem ? 'border border-2 border-black' : ''"
+          :class="pizza.lunchitem ? 'border-2 border-black' : ''"
         >
-          Lunch item
+          Lunch item {{ pizza.lunchitem ? "✅" : "❌" }}
         </button>
         <button
           @click="handleLimitedItem"
           class="bg-blue-300 hover:bg-blue-400 p-2"
-          :class="pizza.limiteditem ? 'border border-2 border-black' : ''"
+          :class="pizza.limiteditem ? 'border-2 border-black' : ''"
         >
-          Limited item
+          Limited item {{ pizza.lunchitem ? "✅" : "❌" }}
         </button>
       </div>
     </div>
@@ -97,6 +97,6 @@ const handleUpdatePizza = () => {
   emit("pizzaEdited");
 };
 
-console.log("lunch:", props.pizza.lunchitem);
-console.log("limited", props.pizza.limiteditem);
+//console.log("lunch:", props.pizza.lunchitem);
+//console.log("limited", props.pizza.limiteditem);
 </script>

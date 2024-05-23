@@ -48,7 +48,6 @@ export const insertPizza = async (pizza) => {
     if (error) {
       throw error;
     }
-
     return data;
   } catch (error) {
     console.error("Error inserting pizza:", error.message);

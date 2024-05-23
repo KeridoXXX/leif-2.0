@@ -1,9 +1,11 @@
 <template>
   {{ isModalVisible }}
   <PizzaForm
+    v-if="pizzadata"
     :visible="isModalVisible"
-    :editing="isEditing"
+    :pizzadata="pizzadata"
     @close="hideModal"
+    @submit="handleInsertPizza"
   ></PizzaForm>
   <div class="grid-container m-10">
     <div class="col-span-6 flex flex-col gap-y-5">
@@ -27,7 +29,7 @@
 </template>
 
 <script setup>
-import { fetchPizzas } from "~/supabase";
+import { fetchPizzas, insertPizza } from "~/supabase";
 
 const pizzadata = ref(null);
 const isModalVisible = ref(false);
@@ -42,8 +44,9 @@ const hideModal = () => {
   isModalVisible.value = false;
 };
 
-const handleInsertPizza = async () => {
-  await insertPizza();
+const handleInsertPizza = async (newPizzaData) => {
+  console.log("emit received in backend.vue, now calling insertPizza...");
+  await insertPizza(newPizzaData);
   freshFetch();
 };
 

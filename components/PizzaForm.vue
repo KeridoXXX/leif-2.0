@@ -3,7 +3,7 @@
   <div v-if="visible" class="modal-overlay">
     <div class="modal-container">
       <div class="modal-header">
-        <h3>{{ isEditing ? "Edit Pizza" : "Add New Pizza" }}</h3>
+        <h3>{{ "Add New Pizza" }}</h3>
         <button @click="closeModal">X</button>
       </div>
       <div class="modal-body">
@@ -47,20 +47,10 @@
           <div>
             <label>Ingredients</label>
             <input
-              v-model="newIngredient"
+              v-model="ingredientsInput"
               type="text"
-              @keydown.enter.prevent="addIngredient"
+              placeholder="Enter ingredients, separated by commas"
             />
-            <button @click="addIngredient">Add Ingredient</button>
-            <div>
-              <span
-                v-for="(ingredient, index) in newPizzaData.ingredients"
-                :key="index"
-              >
-                {{ ingredient }}
-                <button @click="removeIngredient(index)">x</button>
-              </span>
-            </div>
           </div>
 
           <div>
@@ -74,7 +64,7 @@
           </div>
 
           <button type="submit">
-            {{ isEditing ? "Save Changes" : "Add Pizza" }}
+            {{ "Add Pizza" }}
           </button>
         </form>
       </div>
@@ -86,15 +76,17 @@
 import { ref, reactive, watch } from "vue";
 
 const props = defineProps({
+  pizzadata: Array,
   visible: Boolean,
-  isEditing: Boolean,
   initialPizzaData: Object,
 });
+
+//console.log("pizzadata prop???", props.pizzadata);
 
 const emit = defineEmits(["close", "submit"]);
 
 const newPizzaData = reactive({
-  number: "",
+  number: props.pizzadata.length + 1,
   name: "",
   type: "KLASSISKE PIZZAER",
   prices: {
@@ -102,9 +94,20 @@ const newPizzaData = reactive({
     large: "",
   },
   ingredients: [],
-  lunchItem: false,
-  limitedItem: false,
+  lunchitem: false,
+  limiteditem: false,
 });
+
+const ingredientsInput = ref("");
+
+const handleSubmit = () => {
+  newPizzaData.ingredients = ingredientsInput.value
+    .split(",")
+    .map((i) => i.trim());
+  console.log("submitted, now sending emit to parent", newPizzaData);
+  emit("submit", newPizzaData);
+  closeModal();
+};
 
 const closeModal = () => {
   emit("close");
