@@ -7,13 +7,15 @@
     </div>
     <nav :class="{ active: isOpen }">
       <ul class="flex gap-4 text-leif-red">
-        <li class="p-2">
+        <li class="p-2 hover:underline">
           <nuxt-link to="/menu">Menukort & bestilling</nuxt-link>
         </li>
-        <li class="p-2">
+        <li class="p-2 hover:underline">
           <nuxt-link to="/buildapizza">Byg en pizza</nuxt-link>
         </li>
-        <li class="p-2 border border-2 border-leif-red rounded-lg">
+        <li
+          class="p-2 hover:underline border border-2 border-leif-red rounded-lg"
+        >
           <nuxt-link to="/contact">Kontakt &#128222;</nuxt-link>
         </li>
       </ul>
