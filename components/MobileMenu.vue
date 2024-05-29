@@ -12,13 +12,16 @@
     </div>
     <div class="p-4">
       <ul class="text-leif-red">
-        <li class="p-2 hover:underline">
+        <li @click="$emit('close')" class="p-2 hover:underline">
+          <nuxt-link to="/">Forside</nuxt-link>
+        </li>
+        <li @click="$emit('close')" class="p-2 hover:underline">
           <nuxt-link to="/menu">Menukort & bestilling</nuxt-link>
         </li>
-        <li class="p-2 hover:underline">
+        <li @click="$emit('close')" class="p-2 hover:underline">
           <nuxt-link to="/buildapizza">Byg en pizza</nuxt-link>
         </li>
-        <li class="p-2 hover:underline">
+        <li @click="$emit('close')" class="p-2 hover:underline">
           <nuxt-link to="/contact">Kontakt &#128222;</nuxt-link>
         </li>
       </ul>

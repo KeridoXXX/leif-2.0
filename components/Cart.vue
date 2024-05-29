@@ -1,12 +1,12 @@
 <template>
   <div
-    class="fixed top-0 right-0 w-[100vw] md:w-1/3 h-full bg-white shadow-lg z-50"
+    class="fixed top-0 right-0 w-[100vw] lg:w-1/3 h-full bg-white shadow-lg z-50"
     :class="{
       'translate-x-0 transition ease-in-out duration-500': isOpen,
       'translate-x-full transition ease-in-out duration-500': !isOpen,
     }"
   >
-    <div class="h-full" v-if="isOpen">
+    <div class="h-full max-lg:pl-4" v-if="isOpen">
       <div class="p-4 flex justify-between items-center border-b">
         <h2 class="text-lg font-semibold">Your Cart</h2>
         <button @click="$emit('close')" class="text-xl font-bold">

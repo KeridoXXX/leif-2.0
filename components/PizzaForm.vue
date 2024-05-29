@@ -1,5 +1,4 @@
 <template>
-  {{ newPizzaData }}
   <div
     v-if="visible"
     class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75"
@@ -42,18 +41,16 @@
               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
             >
               <option value="KLASSISKE PIZZAER">KLASSISKE PIZZAER</option>
-              <option value="SPECIAL PIZZAER">PIZZA SPECIALE</option>
+              <option value="PIZZA SPECIALE">PIZZA SPECIALE</option>
               <option value="HVIDE PIZZAER">HVIDE PIZZAER</option>
               <option value="GOURMET PIZZAER">GOURMET PIZZAER</option>
-              <option value="PIZZAER MED gul TOMATSOVS">GULE PIZZAER</option>
+              <option value="PIZZAER MED gul TOMATSAUCE">GULE PIZZAER</option>
               <option value="VEGANSKE PIZZAER">VEGANSKE PIZZAER</option>
             </select>
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-700"
-              >Regular Price</label
-            >
+            <label class="block text-sm font-medium text-gray-700">Price</label>
             <input
               v-model="newPizzaData.prices.regular"
               type="number"
@@ -61,18 +58,6 @@
               class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
             />
           </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-700"
-              >Large Price</label
-            >
-            <input
-              v-model="newPizzaData.prices.large"
-              type="number"
-              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-            />
-          </div>
-
           <div>
             <label class="block text-sm font-medium text-gray-700"
               >Ingredients</label
@@ -139,7 +124,7 @@ const newPizzaData = reactive({
   type: "KLASSISKE PIZZAER",
   prices: {
     regular: "",
-    large: "",
+    large: "150",
   },
   ingredients: [],
   lunchitem: false,

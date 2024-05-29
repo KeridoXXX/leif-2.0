@@ -59,8 +59,16 @@ export const updatePizza = async (id, pizza) => {
   try {
     const { data, error } = await supabase
       .from("pizzas")
-      .update(pizza)
-      .match({ id }); // what is match?
+      .update({
+        // Object containing the values to update
+        name: pizza.name,
+        type: pizza.type,
+        prices: pizza.prices,
+        ingredients: pizza.ingredients,
+        lunchitem: pizza.lunchitem,
+        limiteditem: pizza.limiteditem,
+      })
+      .eq("id", id); // Filter to target the pizza with the specified id
 
     if (error) {
       throw error;

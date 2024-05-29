@@ -19,6 +19,7 @@
 
     <Cart :isOpen="isCartOpen" @close="toggleCart" />
     <MobileMenu :isOpen="isMobileMenuOpen" @close="toggleMenu" />
+    <Notification />
   </div>
 </template>
 
@@ -30,7 +31,6 @@ const isMobileMenuOpen = ref(false);
 const isHeaderVisible = ref(false);
 
 const { cartItems } = useCart();
-console.log("cartItems", cartItems);
 
 const toggleCart = () => {
   isCartOpen.value = !isCartOpen.value;
