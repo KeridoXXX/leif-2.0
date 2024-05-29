@@ -1,10 +1,15 @@
 <template>
   <div class="relative min-h-screen bg-leif-white">
-    <header class="bg-leif-white">
-      <SiteHeader />
+    <header
+      :class="{
+        'header-visible': isHeaderVisible,
+      }"
+      class="header bg-leif-white fixed w-[100vw] z-50"
+    >
+      <SiteHeader @cartClicked="toggleCart" @menuClicked="toggleMenu" />
     </header>
 
-    <main class="bg-leif-white">
+    <main class="bg-leif-white pb-16">
       <NuxtPage />
     </main>
 
@@ -12,23 +17,8 @@
       <SiteFooter />
     </footer>
 
-    <!-- Cart Icon -->
-    <div class="fixed bottom-5 right-5">
-      <button @click="toggleCart" class="btn-primary">
-        <span v-if="cartItems.length">View cart </span>🛒
-      </button>
-      <div
-        v-if="cartItems.length > 0"
-        class="w-6 h-6 top-[-20%] left-[-8%] bg-orange-400 absolute rounded-full"
-      >
-        <div class="flex justify-center items-center font-bold text-leif-white">
-          {{ cartItems.length }}
-        </div>
-      </div>
-    </div>
-
-    <!-- Cart Sidebar -->
     <Cart :isOpen="isCartOpen" @close="toggleCart" />
+    <MobileMenu :isOpen="isMobileMenuOpen" @close="toggleMenu" />
   </div>
 </template>
 
@@ -36,15 +26,41 @@
 import { useCart } from "@/composables/useCart";
 
 const isCartOpen = ref(false);
+const isMobileMenuOpen = ref(false);
+const isHeaderVisible = ref(false);
 
 const { cartItems } = useCart();
+console.log("cartItems", cartItems);
 
 const toggleCart = () => {
   isCartOpen.value = !isCartOpen.value;
-  console.log("cartstatus", isCartOpen.value);
+  //console.log("cartstatus", isCartOpen.value);
 };
+
+const toggleMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
+
+onMounted(() => {
+  const checkScroll = () => {
+    isHeaderVisible.value = window.scrollY > 50;
+  };
+
+  window.addEventListener("scroll", checkScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", checkScroll);
+});
 </script>
 
 <style scoped>
-/* Add any necessary styles here */
+.header {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.header-visible {
+  transform: translateY(0);
+}
 </style>

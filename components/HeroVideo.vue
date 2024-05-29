@@ -4,8 +4,11 @@
   >
     <div class="absolute w-full flex justify-center i top-[30%] z-10">
       <div class="flex flex-col items-center">
-        <img class="pb-6 w-[500px]" src="assets\logos\leif_logo.png" alt="" />
-        <!-- <h1 class="homemade-apple text-red-600">leif's</h1>  -->
+        <img
+          class="pb-6 md:w-[500px] w-[400px]"
+          src="assets\logos\leif_logo.png"
+          alt=""
+        />
         <h2 class="homemade-apple text-green-600">buon appetito</h2>
       </div>
     </div>

@@ -5,33 +5,62 @@
         ><img src="assets/logos/leif_logo.png" alt=""
       /></nuxt-link>
     </div>
-    <nav :class="{ active: isOpen }">
-      <ul class="flex gap-4 text-leif-red">
-        <li class="p-2 hover:underline">
-          <nuxt-link to="/menu">Menukort & bestilling</nuxt-link>
-        </li>
-        <li class="p-2 hover:underline">
-          <nuxt-link to="/buildapizza">Byg en pizza</nuxt-link>
-        </li>
-        <li
-          class="p-2 hover:underline border border-2 border-leif-red rounded-lg"
+    <div class="flex gap-4 items-center">
+      <nav class="hidden md:block">
+        <ul class="flex gap-4 text-leif-red">
+          <li class="p-2 hover:underline">
+            <nuxt-link to="/menu">Menukort & bestilling</nuxt-link>
+          </li>
+          <li class="p-2 hover:underline">
+            <nuxt-link to="/buildapizza">Byg en pizza</nuxt-link>
+          </li>
+          <li
+            class="p-2 hover:underline border border-2 border-leif-red rounded-lg"
+          >
+            <nuxt-link to="/contact">Kontakt &#128222;</nuxt-link>
+          </li>
+        </ul>
+      </nav>
+      <div class="md:hidden">
+        <button class="text-3xl text-leif-red" @click="emitMenuClick">☰</button>
+      </div>
+      <div class="cart-icon relative">
+        <button @click="emitClick" class="btn-primary">
+          <span class="hidden md:inline" v-if="cartItems.length > 0"
+            >View cart </span
+          >🛒
+        </button>
+        <div
+          class="w-6 h-6 top-[-20%] left-[-8%] bg-orange-400 absolute rounded-full"
         >
-          <nuxt-link to="/contact">Kontakt &#128222;</nuxt-link>
-        </li>
-      </ul>
-    </nav>
-    <div class="mobile-menu-toggle" @click="toggleMenu">
-      <span></span>
-      <span></span>
-      <span></span>
+          <div
+            class="flex justify-center items-center font-bold text-leif-white"
+          >
+            {{ cartItems.length }}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { useCart } from "@/composables/useCart";
 
+const { cartItems } = useCart();
+console.log("cartItems", cartItems.value.length); // 4
 const isOpen = ref(false);
+
+const emit = defineEmits(["cartClicked", "menuClicked"]);
+
+const emitClick = () => {
+  emit("cartClicked");
+};
+
+const emitMenuClick = () => {
+  emit("menuClicked");
+};
 
 const toggleMenu = () => {
   isOpen.value = !isOpen.value;

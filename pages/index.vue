@@ -2,17 +2,17 @@
   <div>
     <HeroVideo />
   </div>
-  <div class="py-16">
+  <div class="py-32">
     <div class="container-wide" v-if="lunchTime">
       <LunchPizzaBlock :pizzas="lunchPizzas" />
     </div>
   </div>
-  <div class="py-16">
+  <div class="py-32">
     <div class="container-wide">
       <LimitedPizzaBlock :pizzas="limitedPizzas" />
     </div>
   </div>
-  <div class="py-16">
+  <div class="py-32">
     <div class="text-center">
       <div class="mb-10">
         <h2>Looking for something else</h2>
@@ -52,12 +52,16 @@ const lunchPizzas = computed(() => {
 });
 
 // TODOs:
-// mobile view for almost everything
 // More content for footer (instagram stuff perhaps?)
-// A site wide shopping cart which stores the pizzas you've added to it (localstorage???) // DONE
+// everything needs more y padding
 // A PSUEDO checkout page where you can see your order and input your information -> submits an order to the database???
 
-// mobil menu
+// MOBILE FIXES:
+// hero video
+// header
+// footer
+// cart (just come padding adjustments)
+// close mobil menu when a link is clicked
 
 // IDEAS:
 // Limited time offers should have a live countdown to when the offer ends

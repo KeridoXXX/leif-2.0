@@ -1,5 +1,5 @@
 <template>
-  <div class="p-32">
+  <div class="pt-64 pb-32">
     <div class="container text-center flex flex-col gap-20">
       <div>
         <h4>If you want pizza, look no further...</h4>

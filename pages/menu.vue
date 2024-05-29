@@ -1,7 +1,7 @@
 <template>
   <div class="container-wide">
     <div
-      class="mb-16"
+      class="py-16"
       v-for="(pizzas, type) in categorizedPizzaData"
       :key="type"
     >
