@@ -18,6 +18,14 @@
   grid-gap: 20px;
 }
 
+.btn-primary {
+  @apply montserrat p-3 text-leif-white bg-leif-red hover:bg-red-700 hover:scale-105 transition duration-300 rounded-lg;
+}
+
+.btn-secondary {
+  @apply montserrat p-3 text-leif-white bg-leif-green hover:bg-green-700 hover:scale-105 transition duration-300 rounded-lg;
+}
+
 h1 {
   font-size: 4.5rem;
   font-family: "VulfMono Regular", serif;
@@ -55,6 +63,24 @@ h5 {
 
 h6 {
   font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
 }
 
 p {

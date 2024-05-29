@@ -15,16 +15,13 @@
   <div class="py-16">
     <div class="text-center">
       <div class="mb-10">
-        <h2>Complete menu</h2>
+        <h2>Looking for something else</h2>
         <h5>Check out some of our other choices</h5>
       </div>
 
-      <div class="flex justify-center">
-        <nuxt-link
-          to="/menu"
-          class="montserrat p-3 text-leif-white bg-leif-red hover:bg-red-700 hover:scale-105 transition duration-300"
-          >FULL MENU</nuxt-link
-        >
+      <div class="flex justify-center gap-4">
+        <nuxt-link to="/menu" class="btn-primary">FULL MENU</nuxt-link>
+        <nuxt-link to="/menu" class="btn-secondary">CUSTOM PIZZA</nuxt-link>
       </div>
     </div>
   </div>
@@ -57,9 +54,9 @@ const lunchPizzas = computed(() => {
 // TODOs:
 // mobile view for almost everything
 // More content for footer (instagram stuff perhaps?)
-// A site wide shopping cart which stores the pizzas you've added to it (localstorage???)
+// A site wide shopping cart which stores the pizzas you've added to it (localstorage???) // DONE
 // A PSUEDO checkout page where you can see your order and input your information -> submits an order to the database???
-// global styling for buttons, links, etc
+
 // mobil menu
 
 // IDEAS:

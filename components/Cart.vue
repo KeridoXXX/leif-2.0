@@ -1,28 +1,76 @@
 <template>
   <div
-    class="fixed top-0 right-0 w-1/3 h-full bg-white shadow-lg z-50"
+    class="fixed top-0 right-0 w-[100vw] md:w-1/3 h-full bg-white shadow-lg z-50"
     :class="{
       'translate-x-0 transition ease-in-out duration-500': isOpen,
       'translate-x-full transition ease-in-out duration-500': !isOpen,
     }"
   >
-    <div v-if="isOpen">
+    <div class="h-full" v-if="isOpen">
       <div class="p-4 flex justify-between items-center border-b">
         <h2 class="text-lg font-semibold">Your Cart</h2>
         <button @click="$emit('close')" class="text-xl font-bold">
           &times;
         </button>
       </div>
-      <div class="p-4">
+      <div class="p-4 h-full">
         <!-- Loop through cart items here, but what array is this??? -->
-        <p v-if="cartItems === null">Your cart is empty</p>
+        <div v-if="cartItems.length === 0">
+          <p>Your cart is empty</p>
+        </div>
+        <div class="flex flex-col justify-between h-[90%] overflow-auto" v-else>
+          <div>
+            <div
+              v-for="item in cartItems"
+              :key="item.id"
+              class="flex justify-between items-center mb-4"
+            >
+              <div class="flex gap-4">
+                <p class="font-bold">{{ item.name }}</p>
+                <p>{{ item.prices.regular }},-</p>
+              </div>
+              <div class="flex items-center gap-4 p-2">
+                <div class="flex items-center gap-2">
+                  <button
+                    class="hover:scale-110 transition duration-300"
+                    @click="increaseQuantity(item.id)"
+                  >
+                    ➕
+                  </button>
+                  <div>{{ item.quantity }}</div>
+                  <button
+                    class="hover:scale-110 transition duration-300"
+                    @click="decreaseQuantity(item.id)"
+                  >
+                    ➖
+                  </button>
+                </div>
+                <button
+                  @click="removeFromCart(item.id)"
+                  class="hover:scale-110 transition duration-300"
+                >
+                  &#x1F5D1;
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between p-5">
+            <div class="flex gap-2">
+              <p>Total:</p>
+              <p>{{ cartTotal }},-</p>
+            </div>
+            <div>
+              <button class="btn-secondary">Checkout</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { defineProps } from "vue";
+import { useCart } from "@/composables/useCart";
 
 const props = defineProps({
   isOpen: {
@@ -30,6 +78,14 @@ const props = defineProps({
     required: true,
   },
 });
+
+const {
+  cartItems,
+  removeFromCart,
+  cartTotal,
+  increaseQuantity,
+  decreaseQuantity,
+} = useCart();
 </script>
 
 <style scoped>

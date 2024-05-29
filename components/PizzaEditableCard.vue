@@ -44,7 +44,7 @@
           class="bg-blue-300 hover:bg-blue-400 p-2"
           :class="pizza.limiteditem ? 'border-2 border-black' : ''"
         >
-          Limited item {{ pizza.lunchitem ? "✅" : "❌" }}
+          Limited item {{ pizza.limiteditem ? "✅" : "❌" }}
         </button>
       </div>
     </div>
