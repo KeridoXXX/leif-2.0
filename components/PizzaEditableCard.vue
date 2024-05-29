@@ -49,14 +49,17 @@
       </div>
     </div>
     <div class="flex flex-col gap-2">
-      <!-- <button class="bg-green-400 hover:bg-green-500 rounded-lg p-3">
-        Edit
-      </button> -->
       <button
         @click="handleDeletePizza"
         class="bg-red-400 hover:bg-red-500 rounded-lg p-3"
       >
         X
+      </button>
+      <button
+        @click="handleEditPizza"
+        class="bg-green-400 hover:bg-green-500 rounded-lg p-3"
+      >
+        Edit
       </button>
     </div>
   </div>
@@ -80,6 +83,10 @@ const emit = defineEmits(["pizzaDeleted", "pizzaEdited", "pizzaAdded"]);
 const handleDeletePizza = async () => {
   await deletePizza(props.pizza.id);
   emit("pizzaDeleted", props.pizza.id);
+};
+
+const handleEditPizza = () => {
+  emit("pizzaEdit", props.pizza);
 };
 
 const handleLunchItem = async () => {

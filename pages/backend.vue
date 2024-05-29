@@ -14,7 +14,7 @@
         :key="index"
         :pizza="pizza"
         @pizzaDeleted="freshFetch"
-        @pizzaEdited="freshFetch"
+        @pizzaEdit=""
       ></PizzaEditableCard>
     </div>
     <div>
