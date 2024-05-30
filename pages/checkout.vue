@@ -5,7 +5,9 @@
         LITERALLY A TEST FORM DO NOT INPUT ANY REAL INFO
       </h3>
       <div class="grid-container">
-        <div class="col-span-6 payment-form flex flex-col justify-center">
+        <div
+          class="col-span-12 order-1 md:col-span-6 payment-form flex flex-col"
+        >
           <form @submit.prevent="submitOrder" class="space-y-4">
             <div class="w-2/3">
               <label
@@ -56,7 +58,7 @@
             </div>
           </form>
         </div>
-        <div class="col-span-6 cart-content">
+        <div class="col-span-12 md:col-span-6 cart-content">
           <ClientOnly>
             <div
               v-for="item in cartItems"

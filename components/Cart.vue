@@ -61,7 +61,9 @@
             </div>
             <div>
               <NuxtLink to="/checkout">
-                <button class="btn-secondary">Checkout</button>
+                <button @click="$emit('close')" class="btn-secondary">
+                  Checkout
+                </button>
               </NuxtLink>
             </div>
           </div>
