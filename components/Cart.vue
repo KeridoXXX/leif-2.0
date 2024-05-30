@@ -60,7 +60,9 @@
               <p>{{ cartTotal }},-</p>
             </div>
             <div>
-              <button class="btn-secondary">Checkout</button>
+              <NuxtLink to="/checkout">
+                <button class="btn-secondary">Checkout</button>
+              </NuxtLink>
             </div>
           </div>
         </div>

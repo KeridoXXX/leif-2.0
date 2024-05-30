@@ -26,18 +26,22 @@
       </div>
       <div class="cart-icon relative">
         <button @click="emitClick" class="btn-primary">
-          <span class="hidden md:inline" v-if="cartItems.length > 0"
-            >View cart </span
+          <client-only>
+            <span class="hidden md:inline" v-if="cartItems.length > 0"
+              >View cart
+            </span></client-only
           >🛒
         </button>
         <div
           class="w-6 h-6 top-[-20%] left-[-8%] bg-orange-400 absolute rounded-full"
         >
-          <div
-            class="flex justify-center items-center font-bold text-leif-white"
-          >
-            {{ cartItems.length }}
-          </div>
+          <client-only>
+            <div
+              class="flex justify-center items-center font-bold text-leif-white"
+            >
+              {{ cartItems.length }}
+            </div>
+          </client-only>
         </div>
       </div>
     </div>
