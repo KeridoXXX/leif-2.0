@@ -5,8 +5,6 @@ const supabaseKey =
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-//console.log(supabase); // Used to check the status of the connection
-
 export const fetchPizzas = async () => {
   try {
     const { data, error } = await supabase.from("pizzas").select("*");

@@ -114,7 +114,9 @@ const props = defineProps({
 
 const emit = defineEmits(["pizzaDeleted", "pizzaEdited", "pizzaUpdated"]);
 
+// v-model data, er et dekonstrueret objekt af pizza data fra databasen
 const editablePizza = reactive({ ...props.pizza });
+
 const ingredientsInput = ref(editablePizza.ingredients.join(", "));
 editablePizza.prices.large = "150";
 

@@ -33,7 +33,6 @@
 
 <script setup>
 import { fetchPizzas } from "../supabase.js";
-import { ref, computed, onMounted } from "vue";
 
 const pizzadata = ref(null);
 
