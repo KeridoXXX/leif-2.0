@@ -75,7 +75,7 @@
 
           <div class="flex items-center">
             <input
-              v-model="newPizzaData.lunchItem"
+              v-model="newPizzaData.lunchitem"
               type="checkbox"
               class="h-4 w-4 text-blue-600 border-gray-300 rounded"
             />
@@ -86,7 +86,7 @@
 
           <div class="flex items-center">
             <input
-              v-model="newPizzaData.limitedItem"
+              v-model="newPizzaData.limiteditem"
               type="checkbox"
               class="h-4 w-4 text-blue-600 border-gray-300 rounded"
             />
