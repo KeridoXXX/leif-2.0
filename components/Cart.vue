@@ -13,7 +13,7 @@
           &times;
         </button>
       </div>
-      <div class="p-4 h-full">
+      <div class="h-full p-4">
         <!-- Loop through cart items here, but what array is this??? -->
         <div v-if="cartItems.length === 0">
           <p>Your cart is empty</p>
@@ -25,24 +25,24 @@
               :key="item.id"
               class="flex justify-between items-center mb-4"
             >
-              <div class="flex gap-4">
+              <div class="gap-4">
                 <p class="font-bold">{{ item.name }}</p>
-                <p>{{ item.prices.regular }},-</p>
+                <p class="">{{ item.prices.regular }},-</p>
               </div>
               <div class="flex items-center gap-4 p-2">
                 <div class="flex items-center gap-2">
                   <button
                     class="hover:scale-110 transition duration-300"
-                    @click="increaseQuantity(item.id)"
+                    @click="decreaseQuantity(item.id)"
                   >
-                    ➕
+                    ➖
                   </button>
                   <div>{{ item.quantity }}</div>
                   <button
                     class="hover:scale-110 transition duration-300"
-                    @click="decreaseQuantity(item.id)"
+                    @click="increaseQuantity(item.id)"
                   >
-                    ➖
+                    ➕
                   </button>
                 </div>
                 <button

@@ -1,16 +1,15 @@
 <template>
-  <div class="pt-64 pb-32">
-    <div class="container text-center flex flex-col gap-20">
-      <div>
-        <h4>If you want pizza, look no further...</h4>
-        <h2>35 83 21 44</h2>
-        <h4>Hot and delicious pizza, in less than 20 minutes!</h4>
-      </div>
-      <div>
-        <h5>For other types of inquiries, feel free to write us at</h5>
-        <h4>info@leifspizzaria.dk</h4>
-      </div>
-      <p></p>
+  <div class="pb-16 pt-28 md:pb-28 md:pt-56 flex flex-col gap-16">
+    <div class="text-center container flex flex-col gap-5">
+      <h4 class="text-2xl">Hot and delicous pizza!</h4>
+      <h4 class="text-[2rem] font-bold">22 27 07 31</h4>
+      <h4 class="text-2xl">Call us and place an order</h4>
+    </div>
+    <div class="text-center container flex flex-col gap-5">
+      <h4 class="text-xl">For other inquires please write at:</h4>
+      <h4 class="text-[1.4rem] font-bold">leif@pizza.dk</h4>
+      <h4 class="text-xl">Or come by the resturant and say hi</h4>
     </div>
   </div>
 </template>
+<script setup></script>

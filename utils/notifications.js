@@ -1,4 +1,3 @@
-// utils/notifications.js
-
-import Vue from "vue";
-export const notifications = new Vue();
+export const notifications = reactive({
+  showNotification: (message) => {},
+});

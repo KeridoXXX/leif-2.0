@@ -19,7 +19,7 @@
 
     <Cart :isOpen="isCartOpen" @close="toggleCart" />
     <MobileMenu :isOpen="isMobileMenuOpen" @close="toggleMenu" />
-    <Notification />
+    <Notification @notifClicked="toggleCart" />
   </div>
 </template>
 

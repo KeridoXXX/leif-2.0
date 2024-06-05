@@ -25,6 +25,7 @@
 
 <script setup>
 import { useCart } from "@/composables/useCart";
+import { useNotifications } from "@/composables/useNotifications";
 
 const props = defineProps({
   pizza: Object,
@@ -32,8 +33,10 @@ const props = defineProps({
 });
 
 const { addToCart } = useCart();
+const { showNotification } = useNotifications();
 
 const handleClick = () => {
   addToCart(props.pizza);
+  showNotification(`Added ${props.pizza.name} to cart`, "addedCart");
 };
 </script>

@@ -2,14 +2,16 @@
   <div
     class="hero-video relative h-screen w-[100%] overflow-hidden bg-orange-200"
   >
-    <div class="absolute w-full flex justify-center i top-[30%] z-10">
+    <div class="absolute w-full flex justify-center i top-[40%] z-10">
       <div class="flex flex-col items-center">
         <img
-          class="pb-6 md:w-[500px] w-[400px]"
+          class="pb-6 md:w-[500px] w-[300px]"
           src="assets\logos\leif_logo.png"
           alt=""
         />
-        <h2 class="homemade-apple text-green-600">buon appetito</h2>
+        <h2 class="homemade-apple text-green-600 text-[2rem] sm:text-[3rem]">
+          buon appetito
+        </h2>
       </div>
     </div>
     <div class="absolute inset-0">

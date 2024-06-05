@@ -109,6 +109,8 @@
 
 <script setup>
 import { ref, reactive, watch } from "vue";
+import { notifications } from "@utils/notifications";
+console.log(notifications);
 
 const props = defineProps({
   pizzadata: Array,
