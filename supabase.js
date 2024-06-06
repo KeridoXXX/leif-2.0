@@ -1,9 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
+import { useNotifications } from "./composables/useNotifications";
 const supabaseUrl = "https://wmtijaoqacxqmmbjbfap.supabase.co";
 const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndtdGlqYW9xYWN4cW1tYmpiZmFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTI5MjExMzksImV4cCI6MjAyODQ5NzEzOX0.t0JhJJzN-n87PaxzwlXK7rK_zz97hWP9FhEJJLLXfFE";
 
 const supabase = createClient(supabaseUrl, supabaseKey);
+const { showNotification } = useNotifications();
 
 export const fetchPizzas = async () => {
   try {
@@ -46,9 +48,11 @@ export const insertPizza = async (pizza) => {
     if (error) {
       throw error;
     }
+    showNotification("Pizza inserted", "success");
     return data;
   } catch (error) {
     console.error("Error inserting pizza:", error.message);
+    showNotification("Error inserting pizza", "error");
     return null;
   }
 };
@@ -71,10 +75,11 @@ export const updatePizza = async (id, pizza) => {
     if (error) {
       throw error;
     }
-
+    showNotification("Pizza updated", "success");
     return data;
   } catch (error) {
     console.error("Error updating pizza:", error.message);
+    showNotification("Error updating pizza", "error");
     return null;
   }
 };
@@ -86,10 +91,11 @@ export const deletePizza = async (id) => {
     if (error) {
       throw error;
     }
-
+    showNotification("Pizza deleted", "success");
     return data;
   } catch (error) {
     console.error("Error deleting pizza:", error.message);
+    showNotification("Error deleting pizza", "error");
     return null;
   }
 };

@@ -33,10 +33,13 @@ const props = defineProps({
 });
 
 const { addToCart } = useCart();
+
+// deklarer funktionen
 const { showNotification } = useNotifications();
 
 const handleClick = () => {
   addToCart(props.pizza);
+  //kalder notifkationen og sender parametre med
   showNotification(`Added ${props.pizza.name} to cart`, "addedCart");
 };
 </script>

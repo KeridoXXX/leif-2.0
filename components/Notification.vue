@@ -1,4 +1,3 @@
-// Notification.vue
 <template>
   <transition name="slide-fade">
     <div
@@ -6,7 +5,8 @@
       :class="[
         'notification',
         { shake: notificationShake },
-        notificationType === 'addedCart' ? 'cursor-pointer' : '',
+        notificationType === 'addedCart' ? 'cursor-pointer' : '', // logik baseret på notificationType (klikbarhed)
+        notificationType === 'error' ? 'bg-red-500' : '',
       ]"
       @click="notificationType === 'addedCart' ? emitClick() : ''"
     >
@@ -16,8 +16,10 @@
 </template>
 
 <script setup>
+// importerer værdier og funktioner
 import { useNotifications } from "@/composables/useNotifications";
 
+// deklarerer værdier og funktioner
 const { notificationMessage, isVisible, notificationShake, notificationType } =
   useNotifications();
 

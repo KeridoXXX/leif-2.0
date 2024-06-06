@@ -1,9 +1,11 @@
+// reaktive værdier
 const notificationMessage = ref("");
 const isVisible = ref(false);
 const notificationShake = ref(false);
 const notificationType = ref(null);
 let timeout;
 
+// viser en notifikation
 const showNotification = (message, type) => {
   notificationMessage.value = message;
   notificationType.value = type;
@@ -12,15 +14,16 @@ const showNotification = (message, type) => {
   notificationShake.value = true;
   setTimeout(() => {
     notificationShake.value = false;
-  }, 500);
+  }, 500); // længden af animationen
 
-  if (timeout) clearTimeout(timeout);
+  if (timeout) clearTimeout(timeout); // starter timeren forfra, hvis der kommer et nyt kald
 
   timeout = setTimeout(() => {
     isVisible.value = false;
-  }, 3000);
+  }, 3000); // længden af notifikationen
 };
 
+// skyder det ud til resten af applikationen
 export function useNotifications() {
   return {
     notificationMessage,
